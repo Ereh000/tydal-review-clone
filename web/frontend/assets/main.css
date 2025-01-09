@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+  --font-inter: "Inter", serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+li,
+label,
+p {
+  font-family: var(--font-inter);
+}
+
+.homepage .Polaris-Header-Title__SubTitle p {
+  font-weight: bold !important;
+  font-family: "Inter", serif !important;
+  color: #333 !important;
+}
+.homepage .Polaris-Button {
+  margin-top: 1rem;
+  border-radius: 6px;
+  min-height: 2rem;
+}
+.homepage .Polaris-Button span {
+  font-family: var(--font-inter);
+}
+.homepage .Polaris-LegacyCard {
+  overflow: hidden;
+}
+.homepage .Polaris-LegacyCard .Polaris-LegacyCard__Header {
+  background: rgb(255, 184, 0);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.homepage .Polaris-Grid {
+  margin-top: 1rem;
+}
+.homepage .stat-value {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 20px 0 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+}
+.homepage .stat-value p {
+  font-size: 34px;
+  font-weight: 600;
+  margin: 1rem 0;
+}/*# sourceMappingURL=main.css.map */
