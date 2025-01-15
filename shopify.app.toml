@@ -3,7 +3,7 @@
 client_id = "4186b698935274823333861de5a8e885"
 name = "tydal-clone"
 handle = "tydal-clone"
-application_url = "https://move-step-wt-er.trycloudflare.com"
+application_url = "https://lecture-waves-penalty-genius.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://move-step-wt-er.trycloudflare.com/auth/callback",
-  "https://move-step-wt-er.trycloudflare.com/auth/shopify/callback",
-  "https://move-step-wt-er.trycloudflare.com/api/auth/callback"
+  "https://lecture-waves-penalty-genius.trycloudflare.com/auth/callback",
+  "https://lecture-waves-penalty-genius.trycloudflare.com/auth/shopify/callback",
+  "https://lecture-waves-penalty-genius.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

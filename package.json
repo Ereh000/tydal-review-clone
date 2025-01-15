@@ -11,7 +11,10 @@
     "generate": "shopify app generate",
     "deploy": "shopify app deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@shopify/polaris": "^12.27.0",
+    "@shopify/polaris-icons": "^9.3.0"
+  },
   "author": "ARIF",
   "private": true,
   "workspaces": [

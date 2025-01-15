@@ -1,49 +1,203 @@
-import { Card, Page, Layout, TextContainer, Text } from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation } from "react-i18next";
+// import {
+//   ChoiceList,
+//   TextField,
+//   LegacyCard,
+//   LegacyFilters,
+//   DataTable,
+// } from '@shopify/polaris';
+// import {useState, useCallback} from 'react';
 
-export default function PageName() {
-  const { t } = useTranslation();
-  return (
-    <Page>
-      <TitleBar title={t("PageName.title")}>
-        <button variant="primary" onClick={() => console.log("Primary action")}>
-          {t("PageName.primaryAction")}
-        </button>
-        <button onClick={() => console.log("Secondary action")}>
-          {t("PageName.secondaryAction")}
-        </button>
-      </TitleBar>
-      <Layout>
-        <Layout.Section>
-          <Card sectioned>
-            <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
-            </Text>
-            <TextContainer>
-              <p>{t("PageName.body")}</p>
-            </TextContainer>
-          </Card>
-          <Card sectioned>
-            <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
-            </Text>
-            <TextContainer>
-              <p>{t("PageName.body")}</p>
-            </TextContainer>
-          </Card>
-        </Layout.Section>
-        <Layout.Section secondary>
-          <Card sectioned>
-            <Text variant="headingMd" as="h2">
-              {t("PageName.heading")}
-            </Text>
-            <TextContainer>
-              <p>{t("PageName.body")}</p>
-            </TextContainer>
-          </Card>
-        </Layout.Section>
-      </Layout>
-    </Page>
-  );
-}
+// export default function DataTableFiltersExample() {
+//   const [availability, setAvailability] = useState(undefined);
+//   const [productType, setProductType] = useState(undefined);
+//   const [taggedWith, setTaggedWith] = useState(undefined);
+//   const [queryValue, setQueryValue] = useState(undefined);
+
+//   const handleAvailabilityChange = useCallback(
+//     (value) => setAvailability(value),
+//     [],
+//   );
+//   const handleProductTypeChange = useCallback(
+//     (value) => setProductType(value),
+//     [],
+//   );
+//   const handleTaggedWithChange = useCallback(
+//     (value) => setTaggedWith(value),
+//     [],
+//   );
+//   const handleFiltersQueryChange = useCallback(
+//     (value) => setQueryValue(value),
+//     [],
+//   );
+//   const handleAvailabilityRemove = useCallback(
+//     () => setAvailability(undefined),
+//     [],
+//   );
+//   const handleProductTypeRemove = useCallback(
+//     () => setProductType(undefined),
+//     [],
+//   );
+//   const handleTaggedWithRemove = useCallback(
+//     () => setTaggedWith(undefined),
+//     [],
+//   );
+//   const handleQueryValueRemove = useCallback(
+//     () => setQueryValue(undefined),
+//     [],
+//   );
+//   const handleFiltersClearAll = useCallback(() => {
+//     handleAvailabilityRemove();
+//     handleProductTypeRemove();
+//     handleTaggedWithRemove();
+//     handleQueryValueRemove();
+//   }, [
+//     handleAvailabilityRemove,
+//     handleQueryValueRemove,
+//     handleProductTypeRemove,
+//     handleTaggedWithRemove,
+//   ]);
+
+//   const filters = [
+//     {
+//       key: 'availability',
+//       label: 'Availability',
+//       filter: (
+//         <ChoiceList
+//           title="Availability"
+//           titleHidden
+//           choices={[
+//             {label: 'Online Store', value: 'Online Store'},
+//             {label: 'Point of Sale', value: 'Point of Sale'},
+//             {label: 'Buy Button', value: 'Buy Button'},
+//           ]}
+//           selected={availability || []}
+//           onChange={handleAvailabilityChange}
+//           allowMultiple
+//         />
+//       ),
+//       shortcut: true,
+//     },
+//     {
+//       key: 'productType',
+//       label: 'Product type',
+//       filter: (
+//         <ChoiceList
+//           title="Product type"
+//           titleHidden
+//           choices={[
+//             {label: 'T-Shirt', value: 'T-Shirt'},
+//             {label: 'Accessory', value: 'Accessory'},
+//             {label: 'Gift card', value: 'Gift card'},
+//           ]}
+//           selected={productType || []}
+//           onChange={handleProductTypeChange}
+//           allowMultiple
+//         />
+//       ),
+//     },
+//     {
+//       key: 'taggedWith',
+//       label: 'Tagged with',
+//       filter: (
+//         <TextField
+//           label="Tagged with"
+//           value={taggedWith}
+//           onChange={handleTaggedWithChange}
+//           autoComplete="off"
+//           labelHidden
+//         />
+//       ),
+//     },
+//   ];
+
+//   const appliedFilters = [];
+//   if (availability && !isEmpty(availability)) {
+//     const key = 'availability';
+//     appliedFilters.push({
+//       key,
+//       label: disambiguateLabel(key, availability),
+//       onRemove: handleAvailabilityRemove,
+//     });
+//   }
+//   if (productType && !isEmpty(productType)) {
+//     const key = 'productType';
+//     appliedFilters.push({
+//       key,
+//       label: disambiguateLabel(key, productType),
+//       onRemove: handleProductTypeRemove,
+//     });
+//   }
+//   if (taggedWith && !isEmpty(taggedWith)) {
+//     appliedFilters.push({
+//       key: 'taggedWith',
+//       label: `Tagged with ${taggedWith}`,
+//       onRemove: handleTaggedWithRemove,
+//     });
+//   }
+
+//   return (
+//     <div style={{height: '568px'}}>
+//       <LegacyCard>
+//         <LegacyCard.Section>
+//           <LegacyFilters
+//             queryValue={queryValue}
+//             filters={filters}
+//             appliedFilters={appliedFilters}
+//             onQueryChange={handleFiltersQueryChange}
+//             onQueryClear={handleQueryValueRemove}
+//             onClearAll={handleFiltersClearAll}
+//           />
+//         </LegacyCard.Section>
+//         <DataTable
+//           columnContentTypes={[
+//             'text',
+//             'numeric',
+//             'numeric',
+//             'numeric',
+//             'numeric',
+//           ]}
+//           headings={[
+//             'Product',
+//             'Price',
+//             'SKU Number',
+//             'Net quantity',
+//             'Net sales',
+//           ]}
+//           rows={[
+//             ['Emerald Silk Gown', '$875.00', 124689, 140, '$122,500.00'],
+//             ['Mauve Cashmere Scarf', '$230.00', 124533, 83, '$19,090.00'],
+//             [
+//               'Navy Merino Wool Blazer with khaki chinos and yellow belt',
+//               '$445.00',
+//               124518,
+//               32,
+//               '$14,240.00',
+//             ],
+//           ]}
+//           totals={['', '', '', 255, '$155,830.00']}
+//         />
+//       </LegacyCard>
+//     </div>
+//   );
+
+//   function disambiguateLabel(key, value) {
+//     switch (key) {
+//       case 'taggedWith':
+//         return `Tagged with ${value}`;
+//       case 'availability':
+//         return value.map((val) => `Available on ${val}`).join(', ');
+//       case 'productType':
+//         return value.join(', ');
+//       default:
+//         return value.toString();
+//     }
+//   }
+
+//   function isEmpty(value) {
+//     if (Array.isArray(value)) {
+//       return value.length === 0;
+//     } else {
+//       return value === '' || value == null;
+//     }
+//   }
+// }
